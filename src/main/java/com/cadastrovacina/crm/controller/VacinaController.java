@@ -21,5 +21,5 @@ public class VacinaController {
 	public List<Vacina> listar() {
 		return vacinaRepository.findAll();
 	}
-
+	
 }
