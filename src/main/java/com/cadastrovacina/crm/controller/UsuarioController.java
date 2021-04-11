@@ -13,21 +13,21 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.cadastrovacina.crm.dtos.UsuarioDTO;
 import com.cadastrovacina.crm.dtos.UsuarioDTOResponse;
 import com.cadastrovacina.crm.model.Usuario;
-import com.cadastrovacina.crm.repository.UsuarioRepository;
+import com.cadastrovacina.crm.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioService usuarioService;
 
 	@PostMapping
 	public ResponseEntity<UsuarioDTOResponse> adicionar(@Valid @RequestBody UsuarioDTO usuarioDTO,
 			UriComponentsBuilder uriComponentsBuilder) {
 
 		Usuario usuario = usuarioDTO.toModel();
-		Usuario save = usuarioRepository.save(usuario);
+		Usuario save = usuarioService.salvar(usuario);
 
 		return ResponseEntity.created(uriComponentsBuilder.path("/usuarios/{id}").buildAndExpand(save.getId()).toUri())
 				.body(UsuarioDTOResponse.converte(save));

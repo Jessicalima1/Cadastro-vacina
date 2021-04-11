@@ -18,13 +18,13 @@ public class Usuario {
 	@Column(nullable = false)
 	private String nome;
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String cpf;
 
 	@Column(nullable = false)
 	private Date nascimento;
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String email;
 
 	public Usuario() {
