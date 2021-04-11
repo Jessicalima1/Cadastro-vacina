@@ -1,14 +1,13 @@
 package com.cadastrovacina.crm.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Vacina {
 
@@ -17,13 +16,24 @@ public class Vacina {
 	private Long Id;
 
 	@Column(nullable = false)
-	private String Nome_da_vacina;
+	private String nomeDaVacina;
 
 	@Column(nullable = false)
-	private String Nome_do_usuário;
+	private String emailDoUsuario;
 
 	@Column(nullable = false)
-	private String Data_de_aplicação;
+	private Date dataDeAplicacao;
+
+	public Vacina() {
+
+	}
+
+	public Vacina(String nome, String emailUsuario, Date dataVacina) {
+		nomeDaVacina = nome;
+		emailDoUsuario = emailUsuario;
+		dataDeAplicacao = dataVacina;
+
+	}
 
 	public Long getId() {
 		return Id;
@@ -33,28 +43,28 @@ public class Vacina {
 		Id = id;
 	}
 
-	public String getNome_da_vacina() {
-		return Nome_da_vacina;
+	public String getNomeDaVacina() {
+		return nomeDaVacina;
 	}
 
-	public void setNome_da_vacina(String nome_da_vacina) {
-		Nome_da_vacina = nome_da_vacina;
+	public void setNomeDaVacina(String nomeDaVacina) {
+		this.nomeDaVacina = nomeDaVacina;
 	}
 
-	public String getNome_do_usuário() {
-		return Nome_do_usuário;
+	public String getEmailDoUsuario() {
+		return emailDoUsuario;
 	}
 
-	public void setNome_do_usuário(String nome_do_usuário) {
-		Nome_do_usuário = nome_do_usuário;
+	public void setEmailDoUsuario(String emailDoUsuario) {
+		this.emailDoUsuario = emailDoUsuario;
 	}
 
-	public String getData_de_aplicação() {
-		return Data_de_aplicação;
+	public Date getDataDeAplicacao() {
+		return dataDeAplicacao;
 	}
 
-	public void setData_de_aplicação(String data_de_aplicação) {
-		Data_de_aplicação = data_de_aplicação;
+	public void setDataDeAplicacao(Date dataDeAplicacao) {
+		this.dataDeAplicacao = dataDeAplicacao;
 	}
 
 	@Override
